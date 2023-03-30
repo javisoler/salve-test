@@ -18,3 +18,27 @@ export const getClinics = async (): Promise<ClinicsData | null> => {
     return null;
   }
 };
+
+export type PatientsData = Array<{
+  id: string;
+  clinic_id: string;
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
+}>;
+
+export const getPatients = async (
+  clinicId: string
+): Promise<PatientsData | null> => {
+  try {
+    const dataPath = path.join(process.cwd(), 'data');
+    const data = await fs.readFile(
+      dataPath + `/patients-${clinicId}.csv`,
+      'utf8'
+    );
+
+    return csvToJson(data);
+  } catch (error) {
+    return null;
+  }
+};

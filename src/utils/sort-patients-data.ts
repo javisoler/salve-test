@@ -1,4 +1,4 @@
-import { PatientsData } from '@/pages/api/patients';
+import { PatientsData } from './api';
 
 export type Sorting = 'id' | 'first' | 'last' | 'dob';
 export type Order = 'asc' | 'desc';

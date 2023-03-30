@@ -6,9 +6,8 @@ import { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import useSWR, { Fetcher } from 'swr';
 
 import SortButton from '@/components/SortButton';
-import { ClinicsData, getClinics } from '@/utils/api';
+import { ClinicsData, getClinics, PatientsData } from '@/utils/api';
 import { Order, Sorting, sortPatientsData } from '@/utils/sort-patients-data';
-import { PatientsData } from './api/patients';
 
 const patientsDataFetcher: Fetcher<PatientsData, string> = (clinicId) =>
   fetch(`/api/patients?clinicId=${clinicId}`).then((res) => res.json());
